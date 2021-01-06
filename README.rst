@@ -7,6 +7,9 @@
         <a href="https://github.com/maxstrobel/npyfile/actions?workflow=CI">
           <img src="https://github.com/maxstrobel/npyfile/workflows/CI/badge.svg?branch=master" alt="CI Status" />
         </a>
+        <a href="https://codecov.io/gh/maxstrobel/npyfile">
+          <img src="https://codecov.io/gh/maxstrobel/npyfile/branch/master/graph/badge.svg?token=W2IITSWUH4"/>
+        </a>
    </p>
 
 .. teaser-begin
