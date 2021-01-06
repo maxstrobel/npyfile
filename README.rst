@@ -4,6 +4,9 @@
         <a href='https://npyfile.readthedocs.io/en/latest/?badge=latest'>
             <img src='https://readthedocs.org/projects/npyfile/badge/?version=latest' alt='Documentation Status' />
         </a>
+        <a href="https://github.com/maxstrobel/npyfile/actions?workflow=CI">
+          <img src="https://github.com/maxstrobel/npyfile/workflows/CI/badge.svg?branch=master" alt="CI Status" />
+        </a>
    </p>
 
 .. teaser-begin
