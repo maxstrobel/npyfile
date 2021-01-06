@@ -10,6 +10,7 @@ NAME = 'npyfile'
 PROJECT_URLS = {
     'Documentation': 'https://npyfile.readthedocs.io/',
     'Source Code': 'https://github.com/maxstrobel/npyfile',
+    'Bug Tracker': 'https://github.com/maxstrobel/npyfile/issues',
 }
 CLASSIFIERS = [
     'Intended Audience :: Developers',
@@ -73,7 +74,7 @@ def find_meta(meta):
 # Note: this will only work if 'README.md' is present in your MANIFEST.in file!
 DESCRIPTION = find_meta('description')
 try:
-    LONG = read('README.md')
+    LONG = read('README.rst').split(".. teaser-begin")[1]
 except FileNotFoundError:
     LONG = DESCRIPTION
 
@@ -83,7 +84,7 @@ setup(
     version=find_meta('version'),
     description=DESCRIPTION,
     long_description=LONG,
-    long_description_content_type='text/markdown',
+    long_description_content_type='text/x-rst',
     author=find_meta('author'),
     author_email=find_meta('email'),
     maintainer=find_meta('author'),

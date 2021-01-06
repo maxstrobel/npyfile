@@ -14,7 +14,7 @@ actual data.
 
 from npyfile.npyfile import NpyFile
 
-__version__ = '0.1.0'
+__version__ = '1.0.0'
 __description__ = 'NumPy File'
 __url__ = 'https://github.com/maxstrobel/npyfile'
 __author__ = 'Maximilian Strobel'
