@@ -3,3 +3,9 @@ include LICENSE
 # Tests
 include mypy.ini tox.ini
 recursive-include tests *.py
+
+# Docs
+include .readthedocs.yml
+recursive-include docs *.py
+recursive-include docs *.rst
+prune docs/apidoc
