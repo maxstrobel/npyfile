@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 # Package meta-data.
 NAME = 'npyfile'
 PROJECT_URLS = {
-    'Documentation': 'https://github.com/maxstrobel/npyfile/blob/master/README.md',
+    'Documentation': 'https://npyfile.readthedocs.io/',
     'Source Code': 'https://github.com/maxstrobel/npyfile',
 }
 CLASSIFIERS = [

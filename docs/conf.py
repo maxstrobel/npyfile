@@ -3,6 +3,10 @@
 import codecs
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
 
 
 def read(*parts):
@@ -57,7 +61,6 @@ extensions = [
     'sphinx_autodoc_typehints',
 ]
 
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
@@ -110,7 +113,6 @@ html_sidebars = {
         'searchbox.html',
     ]
 }
-
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

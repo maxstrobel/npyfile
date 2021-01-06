@@ -1,4 +1,15 @@
+.. raw:: html
+
+   <p align="center">
+        <a href='https://npyfile.readthedocs.io/en/latest/?badge=latest'>
+            <img src='https://readthedocs.org/projects/npyfile/badge/?version=latest' alt='Documentation Status' />
+        </a>
+   </p>
+
 .. teaser-begin
+
+``npyfile``: Write arrays continuously to ``.npy`` files
+========================================================
 
 ``npyfile`` is a a package that allows you to continuously write arrays to a ``.npy`` file. You can use it like a
 standard Python file with the well-known context manager.
