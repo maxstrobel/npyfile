@@ -1,0 +1,44 @@
+.. teaser-begin
+
+``npyfile`` is a a package that allows you to continuously write arrays to a ``.npy`` file. You can use it like a
+standard Python file with the well-known context manager.
+
+*Warning*: Due to the internal structure of ``.npy`` files, the arrays must have the same ``shape`` & ``dtype``.
+
+.. teaser-end
+
+Example
+-------
+Generate some artificial dummy data, e.g. images, & write them into a temporary file. A real world scenario reflecting
+this is the continuous arrival of new images from a camera.
+
+.. code-block:: python
+
+    import pathlib
+    import tempfile
+    tmp_dir = tempfile.TemporaryDirectory()
+    outfile = pathlib.Path(tmp_dir.name) / 'images.npy'
+
+    images = np.random.randint(low=0, high=255, size=(10,640,480,3))
+
+    with NpyFile(outfile) as file:
+        for img in images:
+            file.write(img)
+
+    np.testing.assert_array_equal(images, np.load(outfile))
+
+    tmp_dir.cleanup()
+
+
+
+Credits
+-------
+
+- `attrs`_: Project & infrastructure setup
+- `numpy`_: File format
+
+
+.. _attrs:
+    https://www.attrs.org
+.. _numpy:
+    https://numpy.org/

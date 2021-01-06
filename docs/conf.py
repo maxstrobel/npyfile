@@ -1,0 +1,149 @@
+# -*- coding: utf-8 -*-
+
+import codecs
+import os
+import re
+
+
+def read(*parts):
+    """
+    Build an absolute path from *parts* and and return the contents of the
+    resulting file.  Assume UTF-8 encoding.
+    """
+    here = os.path.abspath(os.path.dirname(__file__))
+    with codecs.open(os.path.join(here, *parts), "rb", "utf-8") as f:
+        return f.read()
+
+
+def find_version(*file_paths):
+    """
+    Build a path from *file_paths* and search for a ``__version__``
+    string inside.
+    """
+    version_file = read(*file_paths)
+    version_match = re.search(
+        r"^__version__ = ['\"]([^'\"]*)['\"]", version_file, re.M
+    )
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
+
+# -- General configuration ------------------------------------------------
+
+linkcheck_ignore = [
+    r"https://github.com/.*/(issues|pull)/\d+",
+]
+
+# In nitpick mode (-n), still ignore any of the following "broken" references
+# to non-types.
+nitpick_ignore = [
+    ("py:class", "Any value"),
+    ("py:class", "callable"),
+    ("py:class", "callables"),
+    ("py:class", "tuple of types"),
+]
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.doctest",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    'sphinx.ext.napoleon',
+    'sphinx_rtd_theme',
+    'sphinx_autodoc_typehints',
+]
+
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ["_templates"]
+
+# The suffix of source filenames.
+source_suffix = [".rst", ".md"]
+
+# The master toctree document.
+master_doc = "index"
+
+# General information about the project.
+project = u"npyfile"
+copyright = u"2021, Maximilian Strobel"
+
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The short X.Y version.
+release = find_version("../src/npyfile/__init__.py")
+version = release.rsplit(u".", 1)[0]
+# The full version, including alpha/beta/rc tags.
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+exclude_patterns = ["build", ' **/__pycache__']
+
+# The reST default role (used for this markup: `text`) to use for all
+# documents.
+default_role = "any"
+
+# If true, '()' will be appended to :func: etc. cross-reference text.
+add_function_parentheses = True
+
+# -- Options for HTML output ----------------------------------------------
+
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+
+html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+    "sidebar_hide_name": True,
+    "light_logo": "attrs_logo.svg",
+    "dark_logo": "attrs_logo_white.svg",
+}
+html_theme_options = {}
+html_sidebars = {
+    '**': [
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+    ]
+}
+
+
+# The name of an image file (within the static path) to use as favicon of the
+# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+# pixels large.
+# html_favicon = None
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ["_static"]
+
+# If false, no module index is generated.
+html_domain_indices = True
+
+# If false, no index is generated.
+html_use_index = True
+
+# If true, the index is split into individual pages for each letter.
+html_split_index = False
+
+# If true, links to the reST sources are added to the pages.
+html_show_sourcelink = False
+
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+html_show_sphinx = True
+
+# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
+html_show_copyright = True
+
+# If true, an OpenSearch description file will be output, and all pages will
+# contain a <link> tag referring to it.  The value of this option must be the
+# base URL from which the finished HTML is served.
+# html_use_opensearch = ''
+
+# Output file base name for HTML help builder.
+htmlhelp_basename = "npyfiledoc"

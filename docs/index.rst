@@ -1,0 +1,19 @@
+``npyfile``: Write continuously arrays
+======================================
+
+.. include:: ../README.rst
+   :start-after: teaser-begin
+   :end-before: teaser-end
+
+
+Full Table of Contents
+======================
+.. toctree::
+    :maxdepth: 1
+
+    apidoc/npyfile
+    license
+
+
+.. include:: ../README.rst
+   :start-after: teaser-end
