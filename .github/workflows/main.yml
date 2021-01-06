@@ -36,6 +36,8 @@ jobs:
   tests:
     name: "Python ${{ matrix.python-version }}"
     runs-on: "ubuntu-latest"
+    env:
+      USING_COVERAGE: "3.8"
 
     strategy:
       matrix:
@@ -57,6 +59,12 @@ jobs:
 
       - name: "tox"
         run: "python -m tox"
+
+      - name: "Upload coverage to Codecov"
+        if: "contains(env.USING_COVERAGE, matrix.python-version)"
+        uses: "codecov/codecov-action@v1"
+        with:
+          fail_ci_if_error: true
 
   package:
     name: "Build & verify package"
