@@ -1,6 +1,3 @@
-``npyfile``: Write continuously arrays
-======================================
-
 .. include:: ../README.rst
    :start-after: teaser-begin
    :end-before: teaser-end
